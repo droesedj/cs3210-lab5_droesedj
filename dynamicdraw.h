@@ -35,7 +35,7 @@ public:
 	dynamicdraw();
 	~dynamicdraw();
 	virtual void paint(GraphicsContext* gc);
-	virtual void keyDown(GraphicsContext* gc, unsigned int keycode);
+	virtual void keyUp(GraphicsContext* gc, unsigned int keycode);
 	virtual void mouseButtonDown(GraphicsContext* gc,
 					unsigned int button, int x, int y);
 	virtual void mouseButtonUp(GraphicsContext* gc,
@@ -45,10 +45,13 @@ public:
 private:
 	unsigned int drawingMode;
 	unsigned int state;
+	unsigned int color;
 	int x0;
 	int y0;
 	int x1;
 	int y1;
+	int x2;
+	int y2;
 	bool isDragging;
 };
 
