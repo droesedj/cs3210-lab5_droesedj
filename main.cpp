@@ -26,6 +26,32 @@ int main(int argc, char**argv) {
 
 	dynamicdraw dd;
 
+	std::cout << "|| DRAWING PROGRAM THING ||\n"
+			  << "USE NUMBER KEYS 1 THROUGH 9 TO CHOOSE COLOR\n"
+			  << "SHAPES: \n"
+			  << "\tPoint    = p\n"
+			  << "\tLine     = l\n"
+			  << "\tTriangle = t\n"
+			  << "\tCircle   = c\n"
+			  << "When the program is closed, the image will be saved to output.txt.\n";
+
+	if(argc == 2){
+		// load the specified file first.
+		std::string arg2 = argv[1];
+		std::ifstream input;
+		input.open(arg2);
+
+		if(input.is_open()){
+			dd.theImage->in(input);
+			dd.paint(gc);
+			std::cout << "LOADED IMAGE FILE: " << arg2 << '\n';
+			input.close();
+		}else {
+			std::cout << "FILE READ ERROR: COULD NOT OPEN " << arg2 << '\n';
+		}
+	}
+
+
 	gc->runLoop(&dd);
 
 

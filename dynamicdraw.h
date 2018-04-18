@@ -30,10 +30,19 @@ class dynamicdraw : public DrawingBase
 {
 public:
 
+	/// Image used for drawing and storing shapes.
 	image* theImage;
 
+	/// Constructor
 	dynamicdraw();
+
+	/// Destructor
 	~dynamicdraw();
+
+	/**
+	 * Paints the image to the GraphicsContext
+	 * @param gc GraphicsContext to draw on.
+	 */
 	virtual void paint(GraphicsContext* gc);
 	virtual void keyUp(GraphicsContext* gc, unsigned int keycode);
 	virtual void mouseButtonDown(GraphicsContext* gc,
@@ -43,15 +52,24 @@ public:
 	virtual void mouseMove(GraphicsContext* gc, int x, int y);
 
 private:
+	/// Determines the shape that is being drawn.
 	unsigned int drawingMode;
+
+	/// The current drawing state.
 	unsigned int state;
+
+	/// The color that shapes should be drawn in.
 	unsigned int color;
+
+	/// Raw coordinates.
 	int x0;
 	int y0;
 	int x1;
 	int y1;
 	int x2;
 	int y2;
+
+	/// Whether or not the mouse is being dragged.
 	bool isDragging;
 };
 
